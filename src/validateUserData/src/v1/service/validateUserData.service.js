@@ -1,7 +1,7 @@
 module.exports = class orderService {
-  static async validateController() {
+  static async checking(req) {
     try {
-      return;
+      return req.body;
     } catch (error) {
       console.log(error);
     }

@@ -4,8 +4,8 @@ const httpStatusCode = require("../Util/httpStatusCode.status");
 module.exports = class Store {
   static async validateController(req, res) {
     try {
-      res.send("done");
-      return;
+      const respons = validateUserDataService.checking(req);
+      return res.send(respons);
     } catch (error) {
       res
         .status(httpStatusCode.INTERNAL_ERROR_SERVER)
