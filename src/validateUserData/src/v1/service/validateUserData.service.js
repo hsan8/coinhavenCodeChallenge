@@ -1,7 +1,10 @@
-module.exports = class orderService {
-  static async checking(req) {
+const { hashPassword } = require("../Util/passwordHash");
+module.exports = class validateUserService {
+  static async hashingPassword(req) {
     try {
-      return req.body;
+      const { fullName, email, password } = req.body;
+      const newHashedPassword = hashPassword(password);
+      return { fullName: fullName, email: email, password: newHashedPassword };
     } catch (error) {
       console.log(error);
     }

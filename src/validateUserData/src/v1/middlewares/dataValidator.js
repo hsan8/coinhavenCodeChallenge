@@ -27,8 +27,10 @@ exports.validateUser = [
 
   (req, res, next) => {
     const errors = validationResult(req);
-    errors
-      ? res.status(httpStatusCode.UNAUTHORIZED).send({ errors: errors.array() })
+    !errors.isEmpty()
+      ? res
+          .status(httpStatusCode.OK)
+          .send({ status: "fails", errors: errors.array() })
       : next();
   },
 ];

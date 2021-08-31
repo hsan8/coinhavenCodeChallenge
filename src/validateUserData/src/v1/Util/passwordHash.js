@@ -1,1 +1,4 @@
-req.body.password = bcrypt.hashSync(req.body.password, 10);
+const bcrypt = require("bcrypt");
+exports.hashPassword = (password) => {
+  return bcrypt.hashSync(password, 10);
+};
